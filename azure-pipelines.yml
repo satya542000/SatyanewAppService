@@ -17,3 +17,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'newsatyaAppService'
+    appType: 'webApp'
+    WebAppName: 'satyaAppService'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/task1'
